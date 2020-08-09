@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static javax.swing.SwingConstants.RIGHT;
+
 public class Calc extends JFrame {
     private JTextField jTextField;
     private JButton btnDigits;
@@ -101,15 +103,39 @@ public class Calc extends JFrame {
         setBounds(100, 100, 300, 500);
         setBackground(Color.DARK_GRAY);
         setResizable(false);
+        jTextField.setHorizontalAlignment(RIGHT);
         ButtonListener buttonListener = new ButtonListener(jTextField);
-        for (int i = 9; i >= 0; i--) {
-            btnDigits = new JButton(String.valueOf(i));
-            if (!jTextField.getText().equals(0) ) {
-                btnDigits.addActionListener(buttonListener);
-            } 
-            panelBtnDigits.add(btnDigits);
-
+        for (int i = 7; i <= 9; i++) {
+                    btnDigits = new JButton(String.valueOf(i));
+                    if (!jTextField.getText().equals(0)) {
+                        btnDigits.addActionListener(buttonListener);
+                    }
+                    panelBtnDigits.add(btnDigits);
         }
+
+        for (int i = 4; i <= 6; i++) {
+            btnDigits = new JButton(String.valueOf(i));
+            if (!jTextField.getText().equals(0)) {
+                btnDigits.addActionListener(buttonListener);
+            }
+            panelBtnDigits.add(btnDigits);
+        }
+
+        for (int i = 1; i <= 3; i++) {
+            btnDigits = new JButton(String.valueOf(i));
+            if (!jTextField.getText().equals(0)) {
+                btnDigits.addActionListener(buttonListener);
+            }
+            panelBtnDigits.add(btnDigits);
+        }
+        btnDigits = new JButton(String.valueOf(0));
+        if (!jTextField.getText().equals(0)) {
+            btnDigits.addActionListener(buttonListener);
+        }
+        panelBtnDigits.add(btnDigits);
+
+
+
         panelBtnDigits.setLayout(new GridLayout(4, 3));
         panelBtnDigits.add(btnDot);
         btnDot.addActionListener(buttonListener);
