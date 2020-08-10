@@ -20,6 +20,7 @@ public class Calc extends JFrame {
     private JPanel panelBtnDigits;
     int firstValue = 0;
     String operation = "";
+    private final String[]  fonts = {"Serif", "Dialog", "DejaVu Sans"};
 
 
 
@@ -53,6 +54,9 @@ public class Calc extends JFrame {
                 }
                 if ("/".equals(operation)) {
                     if(secondValue == 0) {
+
+                        Font font = new Font(fonts[0], Font.PLAIN, 8);
+                        jTextField.setFont(font);
                         jTextField.setText("Error: Division by zero. Please press 'C'");
                     } else
                     jTextField.setText((firstValue / secondValue) + "");
