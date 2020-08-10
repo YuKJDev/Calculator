@@ -35,6 +35,8 @@ public class Calc extends JFrame {
         btnClear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Font font = new Font(fonts[0], Font.PLAIN, 12);
+                jTextField.setFont(font);
                 jTextField.setText("0");
             }
         });
@@ -168,6 +170,7 @@ public class Calc extends JFrame {
       private void initComponents() {
 
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         jTextField = new JTextField("0");
         btnPlus = new JButton("+");
         btnMinus = new JButton("-");
